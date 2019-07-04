@@ -52,6 +52,8 @@ parser.add_argument('--canvas_size', default=1280, type=int, help='image size fo
 parser.add_argument('--mag_ratio', default=1.5, type=float, help='image magnification ratio')
 parser.add_argument('--show_time', default=False, action='store_true', help='show processing time')
 parser.add_argument('--test_folder', default='/data/', type=str, help='folder path to input images')
+parser.add_argument('--result_folder', default='./result/', type=str, help='folder path to output images')
+
 
 args = parser.parse_args()
 
@@ -59,7 +61,7 @@ args = parser.parse_args()
 """ For test images in a folder """
 image_list, _, _ = file_utils.get_files(args.test_folder)
 
-result_folder = './result/'
+result_folder = args.result_folder
 if not os.path.isdir(result_folder):
     os.mkdir(result_folder)
 
